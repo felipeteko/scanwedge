@@ -75,6 +75,11 @@ class _MyAppState extends State<MyApp> {
                 BarcodeConfig(barcodeType: BarcodeTypes.ean13),
               ],
             ),
+          'SUNMI' => ProfileModel(
+              profileName: widget._demoProfileName,
+              enabledBarcodes: [BarcodeTypes.qrCode.create()],
+              keepDefaults: true,
+            ),
           _ => ProfileModel(
               profileName: widget._demoProfileName,
               enabledBarcodes: [
@@ -164,7 +169,8 @@ class _MyAppState extends State<MyApp> {
                 'trigger' => _triggerScan(),
                 'enable' => _scanwedgePlugin?.enableScanner(),
                 'disable' => _scanwedgePlugin?.disableScanner(),
-                'battery' => _scanwedgePlugin?.getExtendedBatteryStatus().then((status) => log('Battery status(${status?.batteryDecommissionPercentageLeft}): $status')),
+                'battery' =>
+                  _scanwedgePlugin?.getExtendedBatteryStatus().then((status) => log('Battery status(${status?.batteryDecommissionPercentageLeft}): $status')),
                 'monitor' => _activateBatteryMonitor(),
                 'exit' => exit(0),
                 _ => null,
@@ -197,7 +203,8 @@ class _MyAppState extends State<MyApp> {
                             const SizedBox(width: 5),
                             ValueListenableBuilder(
                                 valueListenable: notifierDisableKeystroke,
-                                builder: (context, disableKeyboard, _) => Switch(value: disableKeyboard, onChanged: (value) => notifierDisableKeystroke.value = value)),
+                                builder: (context, disableKeyboard, _) =>
+                                    Switch(value: disableKeyboard, onChanged: (value) => notifierDisableKeystroke.value = value)),
                           ],
                         ),
                         ValueListenableBuilder(
@@ -214,7 +221,9 @@ class _MyAppState extends State<MyApp> {
                                   child: Container(
                                     padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                                     decoration: BoxDecoration(
-                                        color: Colors.blue, borderRadius: BorderRadius.circular(5), boxShadow: const [BoxShadow(offset: Offset(2, 2), blurRadius: 1, color: Colors.black54)]),
+                                        color: Colors.blue,
+                                        borderRadius: BorderRadius.circular(5),
+                                        boxShadow: const [BoxShadow(offset: Offset(2, 2), blurRadius: 1, color: Colors.black54)]),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -222,7 +231,8 @@ class _MyAppState extends State<MyApp> {
                                         Text('AimType:', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white)),
                                         Padding(
                                           padding: const EdgeInsets.only(left: 6.0),
-                                          child: Text(aimType.toString().split('.').last, style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white)),
+                                          child: Text(aimType.toString().split('.').last,
+                                              style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white)),
                                         ),
                                       ],
                                     ),
