@@ -1,6 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="no.talgoe.scanwedge.scanwedge">
   <uses-permission android:name="com.honeywell.decode.permission.DECODE" />
+  <!-- Android targetSdk >= 30: required to communicate with Sunmi scanner service -->
+  <queries>
+    <package android:name="com.sunmi.scanner" />
+  </queries>
   <application>
     <!--receiver
       android:name="${applicationName}"

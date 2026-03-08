@@ -139,6 +139,7 @@ class ScanwedgePlugin(private var log: Logger?=null): FlutterPlugin, MethodCallH
         "DATALOGIC" -> DatalogicPlugin(this, log)
         "NEWLAND" -> NewlandPlugin(this, log)
         "UROVO" -> UrovoPlugin(this, log)
+        "SUNMI" -> SunmiPlugin(this, log)
         else -> null
       }
       hardwarePlugin?.initialize(context)

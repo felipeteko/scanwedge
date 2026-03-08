@@ -212,6 +212,30 @@ enum class BarcodeTypes(val code: String) {
         }
 
         // types listed in https://en.urovo.com/developer/index.html
+        fun fromSunmiCode(codeId: String?): BarcodeTypes {
+            return when (codeId?.uppercase()) {
+                "EAN-13", "EAN13" -> EAN13
+                "EAN-8", "EAN8" -> EAN8
+                "UPC-A", "UPCA" -> UPCA
+                "UPC-E", "UPCE" -> UPCE0
+                "CODE-128", "CODE128" -> CODE128
+                "CODE-39", "CODE39" -> CODE39
+                "CODE-93", "CODE93" -> CODE93
+                "CODABAR" -> CODABAR
+                "ITF", "ITF25", "I2OF5", "INTERLEAVED 2 OF 5" -> I2OF5
+                "QR CODE", "QR", "QRCODE" -> QRCODE
+                "PDF417", "PDF-417" -> PDF417
+                "DATA MATRIX", "DATAMATRIX", "DM" -> DATAMATRIX
+                "AZTEC" -> AZTEC
+                "GS1 DATABAR", "GS1DATABAR", "RSS-14" -> GS1_DATABAR
+                "GS1 DATABAR EXPANDED", "GS1DATABAREXPANDED", "RSS-EXP" -> GS1_DATABAR_EXPANDED
+                "GS1-128", "EAN128", "EAN-128" -> EAN128
+                "MAXICODE" -> MAXICODE
+                "MICROQR", "MICRO QR" -> MICROQR
+                else -> UNKNOWN
+            }
+        }
+
         fun fromUrovoCode(codeId: String?): BarcodeTypes {
             return when(codeId) {
                 "Code39" -> CODE39
